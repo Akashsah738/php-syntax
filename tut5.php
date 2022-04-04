@@ -65,7 +65,7 @@
                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
         }
-?>
+    ?>
 
     <div class="container mt-4">
         <h2>Please enter your email and password</h2>
