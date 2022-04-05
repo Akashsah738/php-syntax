@@ -61,12 +61,52 @@
              $name = $_POST['name'];
              $email = $_POST['email'];
              $desc = $_POST['desc'];
-             echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success!</strong> Your entry has been sucessfully Submitted
-                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
+           
 
             //submit to the database
+
+            //connecting to the database
+            
+
+// connect database
+
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "contacts";
+
+//create a connection
+
+$conn = mysqli_connect($server,$username,$password,$database);
+
+//check for the connection
+
+if(!$conn){
+    die("not connected".mysqli_connect_error());
+}
+else{
+    echo "";
+    //submit to the database
+
+    //sql query to be executed
+
+$sql ="INSERT INTO `contact us` ( `name`, `email`, `concern`, `dt`) VALUES ( '$name', '$email', '$desc', current_timestamp())";
+$result = mysqli_query($conn,$sql);
+//Add the new userdata to the table
+
+if($result){
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your entry has been sucessfully Submitted
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+}
+else{
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your entry has failed to  Submit due to technical issue
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+}
+}
         }
 ?>
 
