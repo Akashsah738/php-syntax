@@ -1,7 +1,5 @@
 <?php
 
-
-
 // connect database
 
 $server = "localhost";
@@ -31,6 +29,9 @@ if($result){
 }
 else{
     echo "The record has not inserted successfully because of this error--->".mysqli_error($conn);
+}
+else{
+    echo "ok";
 }
 
 ?>
